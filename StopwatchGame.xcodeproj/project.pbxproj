@@ -293,6 +293,7 @@
 				6FEC5BCD1BE92327004D2462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -82,6 +82,12 @@
                                     <segue destination="gaX-gG-oNG" kind="show" id="Uhs-au-Zl9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPs-BD-fnx">
+                                <rect key="frame" x="212" y="352" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -90,12 +96,15 @@
                             <constraint firstItem="Cjy-VI-jJw" firstAttribute="top" secondItem="DNk-wD-r6p" secondAttribute="bottom" constant="112" id="L9d-To-xzT"/>
                             <constraint firstItem="Jsz-kK-cSe" firstAttribute="top" secondItem="DgL-lK-GaZ" secondAttribute="bottom" constant="28" id="Pnt-uG-YcA"/>
                             <constraint firstItem="DgL-lK-GaZ" firstAttribute="centerX" secondItem="fE5-pd-ymY" secondAttribute="centerX" id="R85-o7-xs6"/>
+                            <constraint firstItem="fPs-BD-fnx" firstAttribute="centerX" secondItem="fE5-pd-ymY" secondAttribute="centerX" id="fRK-mU-B30"/>
                             <constraint firstItem="DNk-wD-r6p" firstAttribute="centerY" secondItem="fE5-pd-ymY" secondAttribute="centerY" id="iIB-sE-e3e"/>
+                            <constraint firstItem="fPs-BD-fnx" firstAttribute="top" secondItem="DNk-wD-r6p" secondAttribute="bottom" constant="42" id="jAc-8E-bNE"/>
                             <constraint firstItem="TUp-lx-vzd" firstAttribute="centerX" secondItem="fE5-pd-ymY" secondAttribute="centerX" id="kU5-Zc-eXY"/>
                             <constraint firstItem="Cjy-VI-jJw" firstAttribute="centerX" secondItem="fE5-pd-ymY" secondAttribute="centerX" id="qlN-r2-JAn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="scoreLabel" destination="fPs-BD-fnx" id="KeU-Hv-WgJ"/>
                         <outlet property="startButton" destination="TUp-lx-vzd" id="rTb-4P-cAi"/>
                         <outlet property="stopButton" destination="Cjy-VI-jJw" id="wh0-UN-wD0"/>
                         <outlet property="timeDisplayLabel" destination="DNk-wD-r6p" id="tdO-JV-oQz"/>

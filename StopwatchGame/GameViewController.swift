@@ -20,6 +20,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var timeDisplayLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     @IBAction func startTimer(sender: AnyObject) {
         if !timer.valid {
@@ -50,13 +51,12 @@ class GameViewController: UIViewController {
         
         defaults.synchronize()
         
-        print(score)
-        print("")
+        scoreLabel.text = String(format: "Your Score: %d", score)
         
         gameTime = 0
         numRuns++
         
-        if numRuns == 5 {
+        if numRuns == 3 {
             if defaults.integerForKey("best") > score {
                 defaults.setInteger(score, forKey: "best")
                 defaults.synchronize()
@@ -71,7 +71,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad () {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        timeDisplayLabel.text = "爽 😄 ¡PIÑATA! 😄 爽"
+        timeDisplayLabel.text = "爽 😄 ¡PIÑATAS! 😄 爽"
+        scoreLabel.text = "Your Score: 0"
         score = 0
         numRuns = 0
         startButton.enabled = true
