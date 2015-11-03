@@ -12,6 +12,7 @@ class GameViewController: UIViewController {
     
     var startingTime = NSTimeInterval()
     var timer = NSTimer()
+    var gameTime: UInt8 = 0
 
     @IBOutlet weak var timeDisplayLabel: UILabel!
     
@@ -26,12 +27,17 @@ class GameViewController: UIViewController {
     @IBAction func stopTimer(sender: AnyObject) {
         timer.invalidate()
         
-        if timeDisplayLabel.text == "00:01:00" {
+        if gameTime == 0 {
+            print("YEAH")
+        }
+        else if gameTime <= 5 {
             print("OKAY")
         }
         else {
             print("WHAT")
         }
+        
+        gameTime = 0
     }
     
     override func viewDidLoad () {
@@ -50,9 +56,7 @@ class GameViewController: UIViewController {
         // calculate elapsed time
         var elapsedTime = currentTime - startingTime
         
-        // calculate elapsed minutes
-        let minutes = UInt8(elapsedTime / 60.0)
-        elapsedTime -= NSTimeInterval(minutes) * 60.0
+        gameTime = UInt8(elapsedTime * 100 - 100)
         
         // calculate elapsed seconds
         let seconds = UInt8(elapsedTime)
@@ -61,13 +65,12 @@ class GameViewController: UIViewController {
         // calculate elasped milliseconds
         let milliseconds = UInt8(elapsedTime * 100)
         
-        // add the leading zero for minutes, seconds and milliseconds and store them as string constants
-        let strMinutes = String(format: "%02d", minutes)
+        // add the leading zero for seconds and milliseconds and store them as string constants
         let strSeconds = String(format: "%02d", seconds)
         let strMilliseconds = String(format: "%02d", milliseconds)
         
         // concatenate minutes, seconds and milliseconds and assign them to the UILabel
-        timeDisplayLabel.text = "\(strMinutes):\(strSeconds):\(strMilliseconds)"
+        timeDisplayLabel.text = "\(strSeconds):\(strMilliseconds)"
     }
     
 }
