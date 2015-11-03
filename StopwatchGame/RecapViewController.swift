@@ -6,4 +6,8 @@
 //  Copyright © 2015 ___sks6___. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class RecapViewController: UIViewController {
+
+}

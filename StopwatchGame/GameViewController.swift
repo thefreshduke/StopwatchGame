@@ -25,6 +25,13 @@ class GameViewController: UIViewController {
     
     @IBAction func stopTimer(sender: AnyObject) {
         timer.invalidate()
+        
+        if timeDisplayLabel.text == "00:01:00" {
+            print("OKAY")
+        }
+        else {
+            print("WHAT")
+        }
     }
     
     override func viewDidLoad () {
