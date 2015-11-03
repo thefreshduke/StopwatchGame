@@ -17,6 +17,8 @@ class GameViewController: UIViewController {
     var score = 0
     var numRuns = 0
 
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var timeDisplayLabel: UILabel!
     
     @IBAction func startTimer(sender: AnyObject) {
@@ -55,14 +57,14 @@ class GameViewController: UIViewController {
         numRuns++
         
         if numRuns == 5 {
-            if defaults.objectForKey("best") != nil {
-                if defaults.integerForKey("best") > score {
-                    defaults.setInteger(score, forKey: "best")
-                }
+            if defaults.integerForKey("best") > score {
+                defaults.setInteger(score, forKey: "best")
+                defaults.synchronize()
             }
-            else {
-                defaults.setInteger(Int.max, forKey: "best")
-            }
+            
+            timeDisplayLabel.text = "GAME OVER"
+            startButton.enabled = false
+            stopButton.enabled = false
         }
     }
     
@@ -72,6 +74,8 @@ class GameViewController: UIViewController {
         timeDisplayLabel.text = "爽 😄 ¡PIÑATA! 😄 爽"
         score = 0
         numRuns = 0
+        startButton.enabled = true
+        stopButton.enabled = true
     }
     
     override func didReceiveMemoryWarning () {
