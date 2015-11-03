@@ -46,7 +46,7 @@
         <!--Game View Controller-->
         <scene sceneID="kHf-KV-cIY">
             <objects>
-                <viewController id="idl-Kq-r9D" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController id="idl-Kq-r9D" customClass="GameViewController" customModule="StopwatchGame" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ToG-EL-jS4"/>
                         <viewControllerLayoutGuide type="bottom" id="Jsz-kK-cSe"/>
@@ -58,10 +58,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUp-lx-vzd">
                                 <rect key="frame" x="277" y="136" width="47" height="30"/>
                                 <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="idl-Kq-r9D" eventType="touchUpInside" id="J7T-Cx-UYT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjy-VI-jJw">
                                 <rect key="frame" x="280" y="422" width="39" height="30"/>
                                 <state key="normal" title="STOP"/>
+                                <connections>
+                                    <action selector="stopTimer:" destination="idl-Kq-r9D" eventType="touchUpInside" id="raw-y1-s2U"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNk-wD-r6p">
                                 <rect key="frame" x="278" y="289" width="42" height="21"/>
@@ -89,6 +95,9 @@
                             <constraint firstItem="Cjy-VI-jJw" firstAttribute="centerX" secondItem="fE5-pd-ymY" secondAttribute="centerX" id="qlN-r2-JAn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeDisplayLabel" destination="DNk-wD-r6p" id="tdO-JV-oQz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aH6-sC-b8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
