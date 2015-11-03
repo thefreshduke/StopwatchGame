@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad () {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        timeDisplayLabel.text = "爽 😄 ¡PIÑATA! 😄 爽"
     }
     
     override func didReceiveMemoryWarning () {
@@ -56,7 +57,7 @@ class GameViewController: UIViewController {
         // calculate elapsed time
         var elapsedTime = currentTime - startingTime
         
-        gameTime = UInt8(elapsedTime * 100 - 100)
+        gameTime = UInt8(abs(elapsedTime * 100 - 100))
         
         // calculate elapsed seconds
         let seconds = UInt8(elapsedTime)

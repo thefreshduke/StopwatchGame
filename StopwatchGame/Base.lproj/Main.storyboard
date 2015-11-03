@@ -153,6 +153,10 @@
                             <constraint firstItem="1f0-2T-tuS" firstAttribute="top" secondItem="Tro-mi-F2B" secondAttribute="bottom" constant="162" id="vKp-gt-uMa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="highScoreLabel" destination="o6u-NM-7Z5" id="0AF-Nt-21d"/>
+                        <outlet property="yourScoreLabel" destination="1f0-2T-tuS" id="cIZ-al-eTP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2c-ht-vM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
