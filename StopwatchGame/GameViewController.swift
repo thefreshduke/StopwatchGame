@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     var gameTime: UInt8 = 0
     
     var score = 0
+    var numRuns = 0
 
     @IBOutlet weak var timeDisplayLabel: UILabel!
     
@@ -45,27 +46,32 @@ class GameViewController: UIViewController {
         
         defaults.setInteger(score, forKey: "your")
         
-        if defaults.objectForKey("best") != nil {
-            if defaults.integerForKey("best") > score {
-                defaults.setInteger(score, forKey: "best")
-            }
-        }
-        else {
-            defaults.setInteger(Int.max, forKey: "best")
-        }
-        
         defaults.synchronize()
         
         print(score)
         print("")
         
         gameTime = 0
+        numRuns++
+        
+        if numRuns == 5 {
+            if defaults.objectForKey("best") != nil {
+                if defaults.integerForKey("best") > score {
+                    defaults.setInteger(score, forKey: "best")
+                }
+            }
+            else {
+                defaults.setInteger(Int.max, forKey: "best")
+            }
+        }
     }
     
     override func viewDidLoad () {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         timeDisplayLabel.text = "爽 😄 ¡PIÑATA! 😄 爽"
+        score = 0
+        numRuns = 0
     }
     
     override func didReceiveMemoryWarning () {
