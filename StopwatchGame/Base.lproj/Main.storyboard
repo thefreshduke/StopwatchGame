@@ -106,7 +106,7 @@
         <!--Recap View Controller-->
         <scene sceneID="Ovx-3i-GWb">
             <objects>
-                <viewController id="gaX-gG-oNG" customClass="RecapViewController" sceneMemberID="viewController">
+                <viewController id="gaX-gG-oNG" customClass="RecapViewController" customModule="StopwatchGame" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tro-mi-F2B"/>
                         <viewControllerLayoutGuide type="bottom" id="DTi-3r-U7E"/>

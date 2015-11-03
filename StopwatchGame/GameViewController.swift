@@ -13,6 +13,8 @@ class GameViewController: UIViewController {
     var startingTime = NSTimeInterval()
     var timer = NSTimer()
     var gameTime: UInt8 = 0
+    
+    var score = 0
 
     @IBOutlet weak var timeDisplayLabel: UILabel!
     
@@ -36,6 +38,21 @@ class GameViewController: UIViewController {
         else {
             print("WHAT")
         }
+        
+        score += Int(pow(Double(gameTime), 2.0))
+        
+        let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setInteger(score, forKey: "your")
+        
+        if defaults.integerForKey("high") < score {
+            defaults.setObject(score, forKey: "high")
+        }
+        
+        defaults.synchronize()
+        
+        print(score)
+        print("")
         
         gameTime = 0
     }
