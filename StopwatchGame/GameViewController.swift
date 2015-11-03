@@ -45,8 +45,13 @@ class GameViewController: UIViewController {
         
         defaults.setInteger(score, forKey: "your")
         
-        if defaults.integerForKey("high") < score {
-            defaults.setObject(score, forKey: "high")
+        if defaults.objectForKey("best") != nil {
+            if defaults.integerForKey("best") > score {
+                defaults.setInteger(score, forKey: "best")
+            }
+        }
+        else {
+            defaults.setInteger(Int.max, forKey: "best")
         }
         
         defaults.synchronize()

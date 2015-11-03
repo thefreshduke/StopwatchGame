@@ -19,10 +19,10 @@ class RecapViewController: UIViewController {
         
         let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let yourScore = defaults.valueForKey("your") as? Int
-        let highScore = defaults.valueForKey("high") as? Int
+        let bestScore = defaults.valueForKey("best") as? Int
         
         yourScoreLabel.text = String(format: "Your Score: %d", yourScore!)
-        highScoreLabel.text = String(format: "High Score: %d", highScore!)
+        highScoreLabel.text = String(format: "Best Score: %d", bestScore!)
     }
     
     override func didReceiveMemoryWarning () {
