@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     
     @IBAction func startTimer(sender: AnyObject) {
         if !timer.valid {
-            let aSelector : Selector = "updateTime"
+            let aSelector : Selector = #selector(GameViewController.updateTime)
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startingTime = NSDate.timeIntervalSinceReferenceDate()
         }
@@ -54,7 +54,7 @@ class GameViewController: UIViewController {
         scoreLabel.text = String(format: "Your Score: %d", score)
         
         gameTime = 0
-        numRuns++
+        numRuns += 1
         
         if numRuns == 3 {
             if defaults.integerForKey("best") > score {
